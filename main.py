@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, redirect
 from flask_restful import Api
 from resources.bikes import BikeResources, BikeListResources
 from flask_jwt import JWT
@@ -20,6 +20,9 @@ jwt = JWT(app, authentication, identity)
 def create_table():
     db.create_all()
 
+@app.route("/")
+def home():
+    return redirect("https://github.com/Lektor1/unilab_rest_api/tree/main"), 302
 
 api.add_resource(BikeResources, "/bike/<string:bike_name>")
 api.add_resource(BikeListResources, "/bikes")
