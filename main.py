@@ -20,6 +20,7 @@ jwt = JWT(app, authentication, identity)
 def home():
     return redirect("https://github.com/Lektor1/unilab_rest_api/tree/main"), 302
 
+
 api.add_resource(BikeResources, "/bike/<string:bike_name>")
 api.add_resource(BikeListResources, "/bikes")
 api.add_resource(RegisterUser, "/registration")
